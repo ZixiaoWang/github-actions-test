@@ -1,0 +1,9 @@
+{
+  "name": "github-actions-test",
+  "version": "1.0.0",
+  "description": "The test of github actions",
+  "main": "index.js",
+  "author": "Jacky Wang",
+  "license": "MIT",
+  "private": false
+}
