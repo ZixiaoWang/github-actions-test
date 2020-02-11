@@ -16,9 +16,11 @@ jobs:
         with: 
           node-version: '12.x'
       - name: Install node dependencies
-        run: yarn install
-        run: echo 'Installing Node dependencies'
+        run: |
+          yarn install
+          echo 'Installing Node dependencies'
       - name: Build project
-        run: yarn webpack
-        run: echo 'Bunlding the project'
+        run: |
+          yarn webpack
+          echo 'Bunlding the project'
 
