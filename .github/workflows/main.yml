@@ -7,22 +7,19 @@ on:
 
 jobs:
   build-frontend: 
-
     runs-on: ubuntu-latest
-    
     name: Install and build frontend dependencies
-    
     steps: 
       - uses: actions/checkout@v2
-      
       - name: Setup NodeJS
         uses: actions/setup-node@v1
         with: 
           node-version: '12.x'
-
+        run: echo 'Installing Node with version ${ node-version }'
       - name: Install node dependencies
         run: yarn install
-
+        run: echo 'Installing Node dependencies'
       - name: Build project
         run: yarn webpack
+        run: echo 'Bunlding the project'
 
