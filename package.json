@@ -5,5 +5,16 @@
   "main": "index.js",
   "author": "Jacky Wang",
   "license": "MIT",
-  "private": false
+  "private": false,
+  "dependencies": {
+    "preact": "^10.3.1"
+  },
+  "devDependencies": {
+    "clean-webpack-plugin": "^3.0.0",
+    "html-webpack-plugin": "^3.2.0",
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.7.5",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10"
+  }
 }
