@@ -1,0 +1,28 @@
+name: 'NodeJS CI'
+
+on: 
+  push:
+    branches:
+      - 'master'
+
+jobs:
+  build-frontend: 
+
+    runs-on: ubuntu-latest
+    
+    name: Install and build frontend dependencies
+    
+    steps: 
+      - uses: actions/checkout@v2
+      
+      - name: Setup NodeJS
+        uses: actions/setup-node@v1
+        with: 
+          node-version: '12.x'
+
+      - name: Install node dependencies
+        run: yarn install
+
+      - name: Build project
+        run: yarn webpack
+
