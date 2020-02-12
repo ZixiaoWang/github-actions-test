@@ -8,6 +8,14 @@ export interface IComment {
     email: string,
     body: string
 }
+
+export const CommentPlaceholder = {
+    postId: -1,
+    id: -1,
+    name: 'Loading',
+    email: 'Loading...',
+    body: 'Loading'
+}
 @DI.Injectable()
 export class CommentService {
 

@@ -25,6 +25,30 @@ export interface IUser {
     }
 }
 
+export const UserPlaceholder: IUser = {
+    id: -1,
+    name: 'Loading...',
+    username: 'Loading...',
+    email: 'Loading...',
+    address: {
+        street: 'Loading...',
+        suite: 'Loading...',
+        city: 'Loading...',
+        zipcode: 'Loading...',
+    },
+    geo: {
+        lat: 'Loading...',
+        lng: 'Loading...'
+    },
+    phone: 'Loading...',
+    website: 'Loading...',
+    company: {
+        name: 'Loading...',
+        catchPhrase: 'Loading...',
+        bs: 'Loading...'
+    }
+}
+
 @DI.Injectable()
 export class UserService {
     constructor(private fetch: FetchService) {}

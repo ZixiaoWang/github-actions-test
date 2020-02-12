@@ -1,7 +1,7 @@
-import { h, Fragment } from 'preact';
+import React, { Fragment } from 'react';
 import { IUser } from '../services';
 
-export const UserDetail = (props: { user: IUser }) => {
+export function UserDetailComponent(props: { user: IUser }) {
     return (
         <Fragment>
             <div className="field">

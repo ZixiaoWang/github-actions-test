@@ -1,7 +1,7 @@
-import { h, Fragment } from 'preact';
+import React, { Fragment } from 'react';
 import { IComment } from '../services';
 
-export const CommentList = (props: { comments: IComment[] }) => {
+export function CommentListComponent(props: { comments: IComment[] }) {
     return (
         <Fragment>
             {

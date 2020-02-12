@@ -8,6 +8,13 @@ export interface IPost {
     body: string
 }
 
+export const PostPlaceholder: IPost = {
+    userId: -1,
+    id: -1,
+    title: 'Loading...',
+    body: 'Loading...'
+}
+
 @DI.Injectable()
 export class PostService {
 
