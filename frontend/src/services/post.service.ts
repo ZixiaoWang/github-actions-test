@@ -29,6 +29,6 @@ export class PostService {
     }
 
     getPostsByUserId = (userId: number | string): Promise<IPost[]> => {
-        return this.fetch.getJSON(`/posts?userId=${ userId }`);
+        return this.fetch.getJSON(`/users/${ userId }/posts`);
     }
 }
