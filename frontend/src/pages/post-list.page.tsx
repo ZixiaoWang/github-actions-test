@@ -15,6 +15,17 @@ export function PostList() {
     }, []);
 
     return (
-        <PostListComponent posts={ posts } />
+        <section className="section">
+            <div className="container">
+                <div className="columns">
+                    <div className="column is-12">
+                        <h2 className="title is-2">
+                            Posts
+                        </h2>
+                    </div>
+                </div>
+            </div>
+            <PostListComponent posts={ posts } />
+        </section>
     )
 }

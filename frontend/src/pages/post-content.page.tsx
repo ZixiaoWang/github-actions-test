@@ -29,6 +29,7 @@ export function PostContent() {
                             { post.title }
                         </h2>
                         <UserCardComponent user={ user } />
+                        <hr/>
                         <p>
                             { post.body }
                         </p>

@@ -17,6 +17,14 @@ export function UserDetail() {
     }, []);
 
     return (
-        <UserDetailComponent user={ user } />
+        <section className="section">
+            <div className="container">
+                <div className="columns">
+                    <div className="column is-12">
+                        <UserDetailComponent user={ user } />
+                    </div>
+                </div>
+            </div>
+        </section>
     )
 }
