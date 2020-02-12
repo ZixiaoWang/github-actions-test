@@ -4,6 +4,11 @@ import { DI } from '../di';
 export class FetchService {
     private baseURL: string = 'https://jsonplaceholder.typicode.com';
 
+    setBaseURL = (url: string): FetchService => {
+        this.baseURL = url;
+        return this;
+    }
+
     getJSON = (url: string): Promise<any> => {
         return fetch(this.baseURL + url)
             .then(res => res.status > 200 ? Promise.reject(res.status) : res)

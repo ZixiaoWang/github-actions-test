@@ -4,10 +4,10 @@ const HTMLPlugin = require('html-webpack-plugin');
 const CleanPlugin = require('clean-webpack-plugin');
 
 module.exports = {
-    entry: './frontend/src/main.tsx',
+    entry: './src/main.tsx',
     output: {
         filename: '[hash].js',
-        path: path.resolve(__dirname, 'frontend/dist')
+        path: path.resolve(__dirname, 'dist')
     },
     module: {
         rules: [
@@ -20,7 +20,7 @@ module.exports = {
     plugins: [
         new CleanPlugin.CleanWebpackPlugin(),
         new HTMLPlugin({
-            template: path.resolve(__dirname, 'frontend/src/index.html'),
+            template: path.resolve(__dirname, 'src/index.html'),
             minify: true
         })
     ]

@@ -4,3 +4,6 @@ node_modules
 // dist
 **/dist
 **/__dist
+
+// error log
+yarn-error.log
