@@ -25,10 +25,11 @@ jobs:
           yarn install
           echo 'Installing Node dependencies'
       - 
-        name: Build project
+        name: Build frontend
         run: |
+          cd frontend
           yarn webpack
-          echo 'Bunlding the project'
+          echo 'Bunlding frontend'
       -
         name: Deploy to Github Page
         uses: JamesIves/github-pages-deploy-action@releases/v3
