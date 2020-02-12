@@ -1,7 +1,7 @@
 import 'reflect-metadata';
 import React from 'react';
 import { render } from 'react-dom';
-import { Switch, Route, Redirect, BrowserRouter, HashRouter } from 'react-router-dom';
+import { Switch, Route, Redirect, HashRouter } from 'react-router-dom';
 import { PostList } from './pages/post-list.page';
 import { PostContent } from './pages/post-content.page';
 import { UserDetail } from './pages/user-detail.page';
