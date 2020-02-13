@@ -1,4 +1,5 @@
 import faker from 'faker';
+import { IUser } from '../interface';
 
 const generateUser = () => {
     return {
@@ -28,7 +29,7 @@ const generateUser = () => {
     }
 }
 
-const getUsers = (userNum: number = 50) => {
+const getUsers = async (userNum: number = 50): Promise<IUser[]> => {
     return new Array(userNum)
         .fill(0)
         .map((item: number, index: number) => {
@@ -39,7 +40,7 @@ const getUsers = (userNum: number = 50) => {
         })
 }
 
-const getUserByUserId = (userId: string | number = 0) => {
+const getUserByUserId = async (userId: string | number = 0): Promise<IUser> => {
     const id: number = Number(userId);
     return {
         id,

@@ -1,4 +1,5 @@
 import faker from 'faker';
+import { IPost } from '../interface';
 
 const generatePost = () => {
     return {
@@ -10,7 +11,7 @@ const generatePost = () => {
     }
 }
 
-const getPosts = (postNumber: number = 50) => {
+const getPosts = async (postNumber: number = 50): Promise<IPost[]> => {
     return new Array(postNumber)
         .fill(0)
         .map((item: number, index: number) => {
@@ -21,7 +22,7 @@ const getPosts = (postNumber: number = 50) => {
         });
 }
 
-const getPostByPostId = (postId: number | string) => {
+const getPostByPostId = async (postId: number | string): Promise<IPost> => {
     const id: number = Number(postId);
 
     return {
@@ -30,7 +31,7 @@ const getPostByPostId = (postId: number | string) => {
     }
 }
 
-const getPostsByUserId = (userId: number | string) => {
+const getPostsByUserId = async (userId: number | string): Promise<IPost[]> => {
     const id: number = Number(userId);
     const postNum: number = Math.round( Math.random() * 15 + 2 );
 

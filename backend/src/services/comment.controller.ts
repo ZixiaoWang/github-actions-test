@@ -1,4 +1,5 @@
 import faker from 'faker';
+import { IComment } from '../interface';
 
 const generateComment = () => {
     let body = '';
@@ -23,7 +24,7 @@ const generateComment = () => {
     }
 }
 
-const getCommentByCommentId = (commentId: number | string) => {
+const getCommentByCommentId = async (commentId: number | string): Promise<IComment> => {
     const id: number = Number(commentId);
 
     return {
@@ -32,7 +33,7 @@ const getCommentByCommentId = (commentId: number | string) => {
     }
 }
 
-const getCommentsByUserId = (userId: number | string) => {
+const getCommentsByUserId = async (userId: number | string): Promise<IComment[]> => {
     const ID: number = Number(userId);
     const number: number = Math.round( Math.random() * 255 + 1 );
 
@@ -46,7 +47,7 @@ const getCommentsByUserId = (userId: number | string) => {
         });
 }
 
-const getCommentsByPostId = (postId: number | string) => {
+const getCommentsByPostId = async (postId: number | string): Promise<IComment[]> => {
     const ID: number = Number(postId);
     const number: number = Math.round( Math.random() * 325 + 1 );
 
