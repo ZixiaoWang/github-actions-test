@@ -5,7 +5,7 @@ import { Switch, Route, Redirect, HashRouter } from 'react-router-dom';
 import { PostList } from './pages/post-list.page';
 import { PostContent } from './pages/post-content.page';
 import { UserDetail } from './pages/user-detail.page';
-import { bootstrap } from './di/bootstrap';
+import { DI } from './di';
 import { PostService, UserService, CommentService } from './services';
 
 const App = () => {
@@ -21,11 +21,13 @@ const App = () => {
     )
 }
 
-bootstrap([
+DI.bootstrap([
     PostService,
     UserService,
     CommentService
-])
+]);
+
+console.log(DI)
 
 render(
     <App />,

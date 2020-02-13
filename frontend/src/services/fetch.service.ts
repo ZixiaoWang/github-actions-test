@@ -1,8 +1,9 @@
 import { DI } from '../di';
 
+declare const BASEURL: string;
 @DI.Injectable()
 export class FetchService {
-    private baseURL: string = 'https://jsonplaceholder.typicode.com';
+    private baseURL: string = !!BASEURL ? BASEURL : 'https://jsonplaceholder.typicode.com';
 
     setBaseURL = (url: string): FetchService => {
         this.baseURL = url;
