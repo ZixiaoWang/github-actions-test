@@ -11,6 +11,7 @@ const port: number = Number(process.env.PORT || 8080);
 app.use(bodyParser());
 app.use('/ui', express.static(path.resolve(__dirname, '../../frontend/dist')));
 app.use('/api/v1', AuthRouter);
+app.use('/', (req: express.Request, res: express.Response) => res.redirect('/ui'))
 
 app.listen(port, () => {
     figlet(

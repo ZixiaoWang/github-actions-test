@@ -19,8 +19,8 @@ UserRouter.get('', async (req: express.Request, res: express.Response) => {
 
 UserRouter.get('/:userId', async (req: express.Request, res: express.Response) => {
     try {
-        const users: IUser[] = await UserController.getUsers();
-        res.json(users);
+        const user: IUser = await UserController.getUserByUserId(req.params.userId);
+        res.json(user);
     } catch (e) {
         res.status(500).send(e);
     }

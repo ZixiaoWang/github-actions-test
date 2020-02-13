@@ -23,7 +23,9 @@
     "@types/figlet": "^1.2.0"
   },
   "scripts": {
+    "build:frontend": "cd frontend && yarn webpack --env.BASEURL=/api/v1",
     "build:backend": "yarn tsc",
-    "start:backend": "yarn tsc && node backend/dist/main.js"
+    "start:backend": "yarn tsc && node backend/dist/main.js",
+    "start": "cd frontend && yarn webpack --env.BASEURL=/api/v1 && cd .. && yarn start:backend"
   }
 }
