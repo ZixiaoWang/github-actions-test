@@ -1,4 +1,5 @@
 export interface IComment {
+    uuid?: string,
     postId: number,
     id: number,
     name: string,
@@ -7,6 +8,7 @@ export interface IComment {
 }
 
 export interface IPost {
+    uuid?: string,
     userId: number,
     id: number,
     title: string,
@@ -14,6 +16,8 @@ export interface IPost {
 }
 
 export interface IUser {
+    uuid?: string,
+    avatar?: string,
     id: number,
     name: string,
     username: string,
