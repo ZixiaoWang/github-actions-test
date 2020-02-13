@@ -1,7 +1,7 @@
 {
-  "name": "github-actions-test",
+  "name": "github-actions-test-frontend",
   "version": "1.0.0",
-  "description": "The test of github actions",
+  "description": "The frontend of the experimental project to get to know how to use Github Actions",
   "main": "index.js",
   "author": "Jacky Wang",
   "license": "MIT",

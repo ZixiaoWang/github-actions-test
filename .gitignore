@@ -7,3 +7,6 @@ node_modules
 
 // error log
 yarn-error.log
+
+// OS file
+.DS_Store
