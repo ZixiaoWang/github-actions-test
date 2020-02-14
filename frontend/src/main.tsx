@@ -7,6 +7,7 @@ import { PostContent } from './pages/post-content.page';
 import { UserDetail } from './pages/user-detail.page';
 import { DI } from './di';
 import { PostService, UserService, CommentService, FetchService } from './services';
+import CommentDetail from './pages/comment-detail.page';
 
 const App = () => {
     return (
@@ -15,6 +16,7 @@ const App = () => {
                 <Route path="/posts" exact component={ PostList } />
                 <Route path="/posts/:postId" exact component={ PostContent } />
                 <Route path="/user/:userId" exact component={ UserDetail } />
+                <Route path="/comments/:commentId" exact component={ CommentDetail } />
                 <Redirect to="/posts" />
             </Switch>
         </HashRouter>

@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import { Link } from 'react-router-dom';
 import { IComment } from '../services';
 
 export function CommentListComponent(props: { comments: IComment[] }) {
@@ -7,13 +8,15 @@ export function CommentListComponent(props: { comments: IComment[] }) {
             {
                 props.comments.map((comment: IComment, index: number) => {
                     return (
-                        <div className="box">
-                            <div className="content">
-                                <div className="small">{ comment.email }</div>
-                                <p>
+                        <div className="field" key={ index }>
+                            <Link to={`/comments/${ comment.id }`}>
+                                <div className="small is-size-7 has-text-grey">
+                                    { comment.email }
+                                </div>
+                                <div className="small is-size-7 has-text-black">
                                     { comment.body }
-                                </p>
-                            </div>
+                                </div>
+                            </Link>
                         </div>
                     )
                 })

@@ -1,6 +1,7 @@
 import { bootstrap as BOOTSTRAP } from './bootstrap';
 import { Injector as INJECTOR } from './injector';
-import { provide as PROVIDE } from './provider';
+import { provide as PROVIDE } from './provide';
+import { inject as INJECT } from './inject';
 import { 
     Injectable as INJECTABLE, 
     Component as COMPONENT,
@@ -15,6 +16,7 @@ export namespace DI {
     export const Page = PAGE;
     export const Injector = INJECTOR;
     export const provide = PROVIDE;
+    export const inject = INJECT;
 
     export const __core = {
         INJECTABLE_SET, 

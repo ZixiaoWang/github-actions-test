@@ -1,4 +1,4 @@
-import { provide } from "./provider";
+import { provide } from "./provide";
 import { INJECTORS } from "./core";
 
 export class Injector {

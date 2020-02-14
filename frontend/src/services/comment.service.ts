@@ -18,8 +18,11 @@ export const CommentPlaceholder = {
 }
 @DI.Injectable()
 export class CommentService {
-
     constructor(private fetch: FetchService) {}
+
+    getCommentByCommentId = (commentId: string | number): Promise<IComment> => {
+        return this.fetch.getJSON(`/comments/${ commentId }`);
+    }
 
     getCommentsByPostId = (postId: string | number): Promise<IComment[]> => {
         return this.fetch.getJSON(`/posts/${ postId }/comments`);

@@ -1,5 +1,5 @@
 import { INJECTORS, GLOBAL_INJECTOR_SCOPE, INJECTABLE_SET } from './core';
-import { provide } from './provider';
+import { provide } from './provide';
 
 export function bootstrap(InjectableClasses: any[]) {
     if (InjectableClasses instanceof Array) {

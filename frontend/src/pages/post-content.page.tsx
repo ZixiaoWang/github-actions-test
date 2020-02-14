@@ -2,19 +2,22 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useService } from '../hooks';
 import { PostService, IPost, IUser, UserService, PostPlaceholder, UserPlaceholder, IComment, CommentService } from '../services';
-import { UserCardComponent } from '../components';
+import { UserCardComponent, CommentListComponent } from '../components';
 
 export function PostContent() {
     const { postId } = useParams();
     const [post, setPost]: [IPost, any] = useState(PostPlaceholder);
     const [user, setUser]: [IUser, any] = useState(UserPlaceholder);
-    const [comments, setComments]: [IComment|unknown, any] = useState(null);
+    const [commentStatus, setCommentStatus] = useState(0);
+    const [comments, setComments]: [IComment[], any] = useState([]);
     const postService: PostService = useService(PostService);
     const userService: UserService = useService(UserService);
     const commentService: CommentService = useService(CommentService);
 
     const loadComments = async () => {
+        setCommentStatus(1);
         const newComments: IComment[] = await commentService.getCommentsByPostId(post.id);
+        setCommentStatus(2);
         setComments(newComments);
     } 
 
@@ -22,29 +25,24 @@ export function PostContent() {
         (async () => {
             const newPost: IPost = await postService.getPostById(postId || '');
             const newUser: IUser = await userService.getUserByUserId(newPost.userId);
-            setComments(null);
+            setComments([]);
             setPost(newPost);
             setUser(newUser);
         })()
     }, []);
 
     const renderComments = () => {
-        const c: IComment[] = comments as IComment[];
-        if (c) {
-            if (c.length > 0) {
+        if (commentStatus === 0) {
+            return <button className="button is-small" onClick={ loadComments }>Show comments</button>
+        } else if (commentStatus === 1) {
+            return <span>Loading....</span>
+        } else {
+            if (comments.length > 0) {
                 return (
-                    c.map((comment: IComment, index: number) => {
-                        return (
-                            <div className="field">
-                                <div className="small is-size-7 has-text-grey">
-                                    { comment.email }
-                                </div>
-                                <div className="small is-size-7 has-text-black">
-                                    { comment.body }
-                                </div>
-                            </div>
-                        )
-                    })
+                    comments
+                        .map((comment: IComment, index: number) => {
+                            return <CommentListComponent comments={ comments } />
+                        })
                 );
             } else {
                 return (
@@ -69,12 +67,7 @@ export function PostContent() {
                         </p>
                         <hr/>
                         <label className="label">Comments</label>
-                        {
-                            comments ? 
-                            renderComments() :
-                            <button className="button is-small" onClick={ loadComments }>Show comments</button>
-
-                        }
+                        { renderComments() }
                     </div>
                 </div>
             </div>
