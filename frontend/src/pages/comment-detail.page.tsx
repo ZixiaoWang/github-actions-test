@@ -3,7 +3,12 @@ import { DI } from '../di';
 import { CommentService, CommentPlaceholder, IComment } from '../services';
 import { useParams } from 'react-router-dom';
 
-export const CommentDetail = ({ commentService }: { commentService: CommentService }) => {
+export interface CommentDetailProps {
+    commentService: CommentService,
+    [key: string]: any
+}
+
+export const CommentDetail = ({ commentService }: CommentDetailProps) => {
     const { commentId } = useParams();
     const [comment, setComment] = useState(CommentPlaceholder);
 

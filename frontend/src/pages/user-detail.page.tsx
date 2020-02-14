@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { IUser, UserPlaceholder, UserService } from '../services';
-import { useService } from '../hooks';
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { UserDetailComponent } from '../components';
+import { DI } from '../di';
 
-export function UserDetail() {
+export interface UserDetailProps {
+    userService: UserService,
+    [key: string]: any
+}
+
+export function UserDetail({ userService }: UserDetailProps) {
     const { userId } = useParams();
     const [user, setUser]: [IUser, any] = useState(UserPlaceholder);
-    const userService: UserService = useService(UserService);
 
     useEffect(() => {
         (async () => {
@@ -28,3 +32,7 @@ export function UserDetail() {
         </section>
     )
 }
+
+export default DI
+    .inject({ userService: DI.provide(UserService) })
+    .into(UserDetail)

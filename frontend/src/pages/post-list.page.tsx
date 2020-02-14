@@ -1,11 +1,15 @@
-import React, { useState, useEffect, SetStateAction } from 'react';
-import { useService } from '../hooks';
+import React, { useState, useEffect } from 'react';
 import { PostService, IPost } from '../services';
 import { PostListComponent } from '../components';
+import { DI } from '../di';
 
-export function PostList() {
+export interface PostListProps {
+    postService: PostService,
+    [key: string]: any
+}
+
+export function PostList({ postService }: PostListProps) {
     const [posts, setPosts]: [IPost[], any] = useState([]);
-    const postService: PostService = useService(PostService);
 
     useEffect(() => {
         (async () => {
@@ -29,3 +33,7 @@ export function PostList() {
         </section>
     )
 }
+
+export default DI
+    .inject({ postService: DI.provide(PostService) })
+    .into(PostList);

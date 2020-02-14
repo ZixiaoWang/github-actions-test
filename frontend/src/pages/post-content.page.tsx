@@ -1,18 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { useService } from '../hooks';
 import { PostService, IPost, IUser, UserService, PostPlaceholder, UserPlaceholder, IComment, CommentService } from '../services';
 import { UserCardComponent, CommentListComponent } from '../components';
+import { DI } from '../di';
 
-export function PostContent() {
+export interface PostContentProps {
+    postService: PostService,
+    userService: UserService,
+    commentService: CommentService,
+    [key: string]: any
+}
+
+export function PostContent({ postService, userService, commentService }: PostContentProps) {
     const { postId } = useParams();
     const [post, setPost]: [IPost, any] = useState(PostPlaceholder);
     const [user, setUser]: [IUser, any] = useState(UserPlaceholder);
     const [commentStatus, setCommentStatus] = useState(0);
     const [comments, setComments]: [IComment[], any] = useState([]);
-    const postService: PostService = useService(PostService);
-    const userService: UserService = useService(UserService);
-    const commentService: CommentService = useService(CommentService);
 
     const loadComments = async () => {
         setCommentStatus(1);
@@ -74,3 +78,11 @@ export function PostContent() {
         </section>
     )
 }
+
+export default DI
+    .inject({
+        postService: DI.provide(PostService),
+        userService: DI.provide(UserService),
+        commentService: DI.provide(CommentService)
+    })
+    .into(PostContent)
