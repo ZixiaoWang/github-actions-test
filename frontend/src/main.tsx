@@ -6,7 +6,7 @@ import { PostList } from './pages/post-list.page';
 import { PostContent } from './pages/post-content.page';
 import { UserDetail } from './pages/user-detail.page';
 import { DI } from './di';
-import { PostService, UserService, CommentService } from './services';
+import { PostService, UserService, CommentService, FetchService } from './services';
 
 const App = () => {
     return (
@@ -22,12 +22,11 @@ const App = () => {
 }
 
 DI.bootstrap([
+    FetchService,
     PostService,
     UserService,
     CommentService
 ]);
-
-console.log(DI)
 
 render(
     <App />,

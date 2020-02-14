@@ -2,14 +2,11 @@ import express from 'express';
 import { CommentRouter } from './comments.router';
 import { PostRouter } from './posts.router';
 import { UserRouter } from './users.router';
+import { verificationMiddleware } from '../middlewares';
 
 const AuthRouter: express.Router = express.Router();
-const verify = (req: express.Request, res: express.Response, next: express.NextFunction) => {
-    // transparent for now
-    next();
-}
 
-AuthRouter.use('*', verify);
+AuthRouter.use('*', verificationMiddleware);
 AuthRouter.use('/users', UserRouter);
 AuthRouter.use('/posts', PostRouter);
 AuthRouter.use('/comments', CommentRouter);

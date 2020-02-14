@@ -3,7 +3,7 @@ import {
     UserController,
     PostController,
     CommentController
-} from '../services';
+} from '../controllers';
 import { IUser, IComment, IPost } from '../interface';
 
 const UserRouter: express.Router = express.Router();

@@ -2,7 +2,7 @@ import express from 'express';
 import { 
     PostController,
     CommentController
-} from '../services';
+} from '../controllers';
 import { IPost, IComment } from '../interface';
 
 const PostRouter: express.Router = express.Router();
