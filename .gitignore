@@ -4,6 +4,7 @@ node_modules
 // dist
 **/dist
 **/__dist
+**/__snapshots__
 
 // error log
 yarn-error.log

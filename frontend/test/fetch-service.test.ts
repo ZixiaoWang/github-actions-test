@@ -1,44 +1,32 @@
 import faker from 'faker';
-import { FetchService } from "../src/services";
+import fetchMock from 'fetch-mock';
 import 'isomorphic-fetch';
 
-// These are real servers!
-const echoServerURL: string = 'https://xiaoxiao-echo-server.herokuapp.com';
-const mockServerURL: string = 'https://xiaoxiao-mock-server.herokuapp.com';
+import { FetchService } from "../src/services";
+
+const object = { [faker.lorem.word()]: faker.lorem.paragraph() };
+const string = faker.lorem.paragraphs();
+const url = faker.internet.url();
+
+fetchMock
+    .mock(`${ url }/json`, object, { delay: 200 })
+    .mock(`${ url }/text`, string, { delay: 200 })
+    .mock('*', 404);
 const fetchService: FetchService = new FetchService();
 
 describe('Fetch Service Test', () => {
     test('Fetch.getJSON().resolve', async () => {
-        fetchService.setBaseURL(echoServerURL);
-        await expect(fetchService.getJSON('?test=true')).resolves.toEqual({ test: 'true' })
+        fetchService.setBaseURL(url);
+        await expect(fetchService.getJSON('/json')).resolves.toEqual(object)
     });
 
     test('Fetch.getText().resolve', async () => {
-        const payload: string = faker.lorem.paragraph();
-        fetchService.setBaseURL(mockServerURL);
-        await expect(
-            fetchService.getText(
-                '/',
-                {
-                    "x-mock-type": "text",
-                    "x-mock-status": 200,
-                    "x-mock-body": payload
-                }
-            )
-        ).resolves.toEqual(payload);
+        fetchService.setBaseURL(url);
+        await expect(fetchService.getText('/text')).resolves.toEqual(string);
     });
 
     test('Fetch.getJSON().reject', async () => {
-        const status: number = Math.round( Math.random() * 10 + 400);
-        fetchService.setBaseURL(mockServerURL);
-        await expect(
-            fetchService.getText(
-                '/',
-                {
-                    "x-mock-type": "text",
-                    "x-mock-status": status
-                }
-            )
-        ).rejects.toEqual(status);
+        fetchService.setBaseURL(url);
+        await expect(fetchService.getText('/')).rejects.toEqual(404);
     });
 })
