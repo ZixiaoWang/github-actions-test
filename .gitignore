@@ -4,7 +4,10 @@ node_modules
 // dist
 **/dist
 **/__dist
+
+// cache
 **/__snapshots__
+**/.next
 
 // error log
 yarn-error.log

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { IUser, UserPlaceholder, UserService } from '../services';
+import { IUser, UserPlaceholder, UserService } from '../../services';
 import { useParams } from 'react-router-dom';
-import { UserDetailComponent } from '../components';
-import { DI } from '../di';
+import { UserDetailComponent } from '../../components';
+import { DI } from '../../di';
 
 export interface UserDetailProps {
     userService: UserService,

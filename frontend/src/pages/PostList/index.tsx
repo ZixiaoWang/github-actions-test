@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { PostService, IPost } from '../services';
-import { PostListComponent } from '../components';
-import { DI } from '../di';
+import { PostService, IPost } from '../../services';
+import { PostListComponent } from '../../components';
+import { DI } from '../../di';
 
 export interface PostListProps {
     postService: PostService,

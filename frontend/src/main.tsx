@@ -5,10 +5,10 @@ import { Switch, Route, Redirect, HashRouter } from 'react-router-dom';
 import { DI } from './di';
 import { PostService, UserService, CommentService, FetchService } from './services';
 
-import PostList from './pages/post-list.page';
-import PostContent from './pages/post-content.page';
-import UserDetail from './pages/user-detail.page';
-import CommentDetail from './pages/comment-detail.page';
+import PostList from './pages/PostList';
+import PostContent from './pages/PostContent';
+import UserDetail from './pages/UserDetail';
+import CommentDetail from './pages/CommentDetail';
 
 const App = () => {
     return (

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { DI } from '../di';
-import { CommentService, CommentPlaceholder, IComment } from '../services';
+import { DI } from '../../di';
+import { CommentService, CommentPlaceholder, IComment } from '../../services';
 import { useParams } from 'react-router-dom';
 
 export interface CommentDetailProps {
