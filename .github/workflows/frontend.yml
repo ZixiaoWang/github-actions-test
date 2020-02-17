@@ -30,4 +30,7 @@ jobs:
 
       - 
         name: Run unit tests
-        run: yarn test
+        run: |
+          cd frontend
+          yarn test
+          echo 'Frontend unit test finished'
