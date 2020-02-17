@@ -25,7 +25,6 @@ module.exports = (env = {}) => {
                 minify: true
             }),
             new webpack.DefinePlugin({
-                BASEURL: JSON.stringify(env.BASEURL),
                 "BASEURL": JSON.stringify(env.BASEURL)
             })
         ],

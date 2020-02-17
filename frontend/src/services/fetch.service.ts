@@ -10,24 +10,24 @@ export class FetchService {
         return this;
     }
 
-    getJSON = (url: string): Promise<any> => {
-        return fetch(this.baseURL + url)
+    getJSON = (url: string, headers: any = {}): Promise<any> => {
+        return fetch(this.baseURL + url, { headers })
             .then(res => res.status > 200 ? Promise.reject(res.status) : res)
             .then(res => res.json());
     }
 
-    getText = (url: string): Promise<any> => {
-        return fetch(this.baseURL + url)
+    getText = (url: string, headers: any = {}): Promise<any> => {
+        return fetch(this.baseURL + url, { headers })
             .then(res => res.status > 200 ? Promise.reject(res.status) : res)
             .then(res => res.text());
     }
 
-    getHeaders = (url: string): Promise<Headers> => {
-        return fetch(this.baseURL + url)
+    getHeaders = (url: string, headers: any = {}): Promise<Headers> => {
+        return fetch(this.baseURL + url, { headers })
             .then(res => res.headers);
     }
 
-    getResponse = (url: string): Promise<Response> => {
-        return fetch(this.baseURL + url)
+    getResponse = (url: string, headers: any = {}): Promise<Response> => {
+        return fetch(this.baseURL + url, { headers })
     }
 }
