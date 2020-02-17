@@ -1,14 +1,20 @@
 import 'reflect-metadata';
 import React from 'react';
-import { render } from 'react-dom';
 import { Switch, Route, Redirect, HashRouter } from 'react-router-dom';
+import { render } from 'react-dom';
 import { DI } from './di';
-import { PostService, UserService, CommentService, FetchService } from './services';
 
 import PostList from './pages/PostList';
 import PostContent from './pages/PostContent';
 import UserDetail from './pages/UserDetail';
 import CommentDetail from './pages/CommentDetail';
+
+import { 
+    PostService, 
+    UserService, 
+    CommentService, 
+    FetchService 
+} from './services';
 
 const App = () => {
     return (

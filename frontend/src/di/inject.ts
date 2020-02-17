@@ -7,6 +7,10 @@ type HigherOrderReactFunctionalComponent = (component: ReactFunctionalComponent)
 export const inject = (services: Props = {}): { into: HigherOrderReactFunctionalComponent } => {
     return {
         into: (WrappedComponent: ReactFunctionalComponent): ReactFunctionalComponent => {
+            // SSR makes me question the meaning of my life...
+            (<any>WrappedComponent).getInitialProps = async () => {
+                return services;
+            }
             return ((props: Props): JSX.Element => {
                 return React.createElement(WrappedComponent, {...services, ...props})
             });
