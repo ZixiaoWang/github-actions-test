@@ -3,6 +3,7 @@ name: 'Frontend branch unit test'
 on:
   push:
     branches:
+      - 'frontend'
       - 'frontend/**'
 
 jobs:
