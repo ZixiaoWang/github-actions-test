@@ -24,7 +24,6 @@ jobs:
       - 
         name: Install node dependencies
         run: |
-          cd frontend
           yarn install
           echo 'Installing Node dependencies'
 
