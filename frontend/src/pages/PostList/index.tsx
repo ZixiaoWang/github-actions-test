@@ -8,7 +8,7 @@ export interface PostListProps {
     [key: string]: any
 }
 
-export const PostList = ({ postService }: PostListProps) => {
+export function PostList ({ postService }: PostListProps) {
     const [posts, setPosts]: [IPost[], any] = useState([]);
 
     useEffect(() => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import faker from 'faker';
 import { act, create } from 'react-test-renderer';
-import { PostList } from '../src/pages/post-list.page';
+import { PostList } from '../src/pages/PostList';
 import { IPost } from '../src/services';
 import { StaticRouter } from 'react-router-dom';
 

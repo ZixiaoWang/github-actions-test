@@ -2,18 +2,21 @@ import React from 'react';
 
 type Props = any;
 type ReactFunctionalComponent = (props: Props) => JSX.Element
-type HigherOrderReactFunctionalComponent = (component: ReactFunctionalComponent) => ReactFunctionalComponent
+type HigherOrderReactFunctionalComponent = (Component: ReactFunctionalComponent) => ReactFunctionalComponent
 
 export const inject = (services: Props = {}): { into: HigherOrderReactFunctionalComponent } => {
     return {
-        into: (WrappedComponent: ReactFunctionalComponent): ReactFunctionalComponent => {
+        into: (Component: ReactFunctionalComponent): ReactFunctionalComponent => {
+            const WrappedComponent = (props: Props): JSX.Element => {
+                return React.createElement(Component, {...services, ...props})
+            };
+
             // SSR makes me question the meaning of my life...
-            (<any>WrappedComponent).getInitialProps = async () => {
+            WrappedComponent.getInitialProps = async () => {
                 return services;
             }
-            return ((props: Props): JSX.Element => {
-                return React.createElement(WrappedComponent, {...services, ...props})
-            });
+
+            return WrappedComponent.bind(Component);
         }
     }
 }
