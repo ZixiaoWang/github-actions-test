@@ -57,6 +57,6 @@
     "test:frontend": "jest --updateSnapshot --config jest.frontend.js",
     "build:frontend": "yarn webpack --env.BASEURL=/api/v1 --config ./frontend/webpack.config.js",
     "build:backend": "yarn tsc --project tsconfig.backend.json",
-    "start:backend": "yarn tsc --project tsconfig.backend.json && node dist/backend/src/main.js"
+    "start:backend": "yarn tsc --project tsconfig.backend.json && node dist/backend/main.js"
   }
 }

@@ -8,13 +8,13 @@ import next from 'next';
 import { AuthRouter } from './routers';
 import { LoggerMiddleware, SSRMiddleware } from './middlewares';
 
-import { DI } from '../../frontend/src/di';
+import { DI } from '../frontend/src/di';
 import { 
     PostService, 
     UserService, 
     CommentService, 
     FetchService 
-} from '../../frontend/src/services';
+} from '../frontend/src/services';
 
 DI.bootstrap([
     FetchService,
@@ -25,7 +25,7 @@ DI.bootstrap([
 
 // Next Configurates
 const dev: boolean = true;
-const dir: string = path.resolve(__dirname, '../../../frontend/src');
+const dir: string = path.resolve(__dirname, '../../frontend/src');
 
 const app = next({ dev, dir });
 const nextRequestHandler = app.getRequestHandler();
@@ -37,7 +37,7 @@ const port: number = Number(process.env.PORT || 8080);
 
     server.use(bodyParser());
     server.use(LoggerMiddleware);
-    server.use('/csr', express.static(path.resolve(__dirname, '../../../frontend/dist')));
+    server.use('/csr', express.static(path.resolve(__dirname, '../../frontend/dist')));
     server.use('/api/v1', AuthRouter);
     server.use('/', SSRMiddleware(nextRequestHandler));
     // server.use('/', (req: express.Request, res: express.Response) => res.redirect('/ui'))
