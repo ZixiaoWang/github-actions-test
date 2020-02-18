@@ -31,7 +31,7 @@ module.exports = (env = {}) => {
                 minify: true
             }),
             new webpack.DefinePlugin({
-                "BASEURL": JSON.stringify(env.BASEURL)
+                "process.env.BASEURL": JSON.stringify(env.BASEURL)
             })
         ],
     

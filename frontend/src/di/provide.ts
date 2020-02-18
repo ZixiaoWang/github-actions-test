@@ -5,7 +5,7 @@ function provide (ClassConstructor: any): any {
     const argConstructors: any[] = Reflect.getMetadata('design:paramtypes', ClassConstructor) || [];
     
     if (argConstructors.length === 0) {
-        const global_map: WeakMap<any, any> = INJECTORS.get(GLOBAL_INJECTOR_SCOPE) as WeakMap<any, any>;
+        const global_map: Map<any, any> = INJECTORS.get(GLOBAL_INJECTOR_SCOPE) as Map<any, any>;
         if (global_map && global_map.has(ClassConstructor)) {
             return global_map.get(ClassConstructor);
         }

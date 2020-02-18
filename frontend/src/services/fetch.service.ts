@@ -1,9 +1,14 @@
+import 'isomorphic-fetch';
 import { DI } from '../di';
 
-declare const BASEURL: string;
+declare var process : {
+    env: {
+      [key: string]: string | undefined
+    }
+  }
 @DI.Injectable()
 export class FetchService {
-    private baseURL: string = !!BASEURL ? BASEURL : 'https://jsonplaceholder.typicode.com';
+    private baseURL: string = !!process.env.BASEURL ? process.env.BASEURL : 'https://jsonplaceholder.typicode.com';
 
     setBaseURL = (url: string): FetchService => {
         this.baseURL = url;

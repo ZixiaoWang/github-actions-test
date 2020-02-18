@@ -1,6 +1,6 @@
 import 'reflect-metadata';
 import React from 'react';
-import PostListPage from './PostList';
+import Link from 'next/link';
 
 const Index = () => {
     return (
@@ -12,6 +12,11 @@ const Index = () => {
                     </div>
                     <p>
                         It works
+                    </p>
+                    <p>
+                        <Link href="/commentDetail" >
+                            <a>Comment Detail</a>
+                        </Link>
                     </p>
                 </div>
             </div>

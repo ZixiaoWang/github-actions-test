@@ -2,7 +2,7 @@ import { provide } from "./provide";
 import { INJECTORS } from "./core";
 
 export class Injector {
-    private instanceMap: WeakMap<any, any> = new WeakMap();
+    private instanceMap: Map<any, any> = new Map();
 
     constructor(ClassConstructors: any[], injectorName?: string) {
         if (ClassConstructors && ClassConstructors instanceof Array) {

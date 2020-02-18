@@ -10,7 +10,7 @@ export const inject = (services: Props = {}): { into: HigherOrderReactFunctional
             const WrappedComponent = (props: Props): JSX.Element => {
                 return React.createElement(Component, {...services, ...props})
             };
-
+            
             // SSR makes me question the meaning of my life...
             WrappedComponent.getInitialProps = async () => {
                 return services;
