@@ -1,10 +1,10 @@
 import React from 'react';
 import { IUser } from '../services';
-import { Link } from 'react-router-dom';
+import { Link } from '../../router';
 
 export function UserCardComponent (props: { user: IUser }) {
     return (
-        <Link to={`/user/${ props.user.id }`}>
+        <Link to={`/user/${ props.user.id }`} href={`/UserDetail?userId=${ props.user.id }`}>
             <div className="box">
                 <div className="content">
                     <h5 className="title is-5">

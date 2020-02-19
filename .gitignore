@@ -8,6 +8,7 @@ node_modules
 // cache
 **/__snapshots__
 **/.next
+**/next
 
 // error log
 yarn-error.log

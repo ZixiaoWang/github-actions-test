@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams } from '../../../router';
 import { PostService, IPost, IUser, UserService, PostPlaceholder, UserPlaceholder, IComment, CommentService } from '../../services';
 import { UserCardComponent, CommentListComponent } from '../../components';
 import { DI } from '../../di';

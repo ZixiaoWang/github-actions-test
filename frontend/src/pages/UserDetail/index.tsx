@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { IUser, UserPlaceholder, UserService } from '../../services';
-import { useParams } from 'react-router-dom';
+import { useParams } from '../../../router';
 import { UserDetailComponent } from '../../components';
 import { DI } from '../../di';
 
