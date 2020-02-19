@@ -1,7 +1,7 @@
 module.exports = {
     env: {
         SSR: true,
-        BASEURL: '/'
+        BASEURL: null
     },
     distDir: '../next',
     pageExtensions: [

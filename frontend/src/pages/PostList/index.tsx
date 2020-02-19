@@ -11,8 +11,6 @@ export interface PostListProps {
 export function PostList ({ postService }: PostListProps) {
     const [posts, setPosts]: [IPost[], any] = useState([]);
 
-    console.log({ postService })
-
     useEffect(() => {
         (async () => {
             const newPosts: IPost[] = await postService.getPosts();

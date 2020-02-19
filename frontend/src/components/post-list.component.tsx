@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from '../../router';
+import { Link } from '../router-provider';
 import { IPost } from '../services';
 
 interface PostListComponentProps {

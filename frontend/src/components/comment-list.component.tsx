@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { Link } from '../../router';
+import { Link } from '../router-provider';
 import { IComment } from '../services';
 
 export function CommentListComponent(props: { comments: IComment[] }) {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { IUser } from '../services';
-import { Link } from '../../router';
+import { Link } from '../router-provider';
 
 export function UserCardComponent (props: { user: IUser }) {
     return (

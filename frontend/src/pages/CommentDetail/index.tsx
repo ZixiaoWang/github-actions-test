@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { DI } from '../../di';
 import { CommentService, CommentPlaceholder, IComment } from '../../services';
-import { useParams } from '../../../router';
+import { useParams } from '../../router-provider';
 
 export interface CommentDetailProps {
     commentService: CommentService,

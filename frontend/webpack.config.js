@@ -2,7 +2,6 @@ const webpack = require('webpack');
 const path = require('path');
 const HTMLPlugin = require('html-webpack-plugin');
 const CleanPlugin = require('clean-webpack-plugin');
-const TsConfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 module.exports = (env = {}) => {
     return {
@@ -13,16 +12,17 @@ module.exports = (env = {}) => {
         },
         module: {
             rules: [
-                { test: /\.tsx?$/, use: 'ts-loader' }
+                { 
+                    test: /\.tsx?$/, 
+                    loader: 'awesome-typescript-loader',
+                    options: {
+                        configFileName: path.resolve(__dirname, './tsconfig.frontend.json')
+                    }
+                }
             ]
         },
         resolve: {
-            extensions: ['.tsx', '.ts', '.js'],
-            // plugins: [
-            //     new TsConfigPathsPlugin({
-            //         configFile: path.resolve(__dirname, './tsconfig.frontend.json')
-            //     })
-            // ]
+            extensions: ['.tsx', '.ts', '.js']
         },
         plugins: [
             new CleanPlugin.CleanWebpackPlugin(),
