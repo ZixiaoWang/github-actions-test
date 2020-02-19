@@ -30,6 +30,5 @@ jobs:
       - 
         name: Run unit tests
         run: |
-          cd frontend
-          yarn test
+          yarn test:frontend
           echo 'Frontend unit test finished'

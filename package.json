@@ -60,6 +60,7 @@
   },
   "scripts": {
     "test:frontend": "jest --updateSnapshot --config jest.frontend.js",
+    "test:backend": "jest --config jest.backend.js",
     "build:frontend": "yarn webpack --env.BASEURL=/api/v1 --config ./frontend/webpack.config.js",
     "build:next": "yarn next build ./frontend/src",
     "build:express": "yarn tsc --project tsconfig.backend.json",
