@@ -26,6 +26,7 @@
     "@babel/core": "^7.8.4",
     "@babel/plugin-proposal-class-properties": "^7.8.3",
     "@babel/plugin-proposal-decorators": "^7.8.3",
+    "@babel/plugin-transform-typescript": "^7.8.3",
     "@babel/preset-typescript": "^7.8.3",
     "@types/colors": "^1.2.1",
     "@types/express": "^4.17.2",
@@ -57,7 +58,7 @@
   "scripts": {
     "test:frontend": "jest --updateSnapshot --config jest.frontend.js",
     "build:frontend": "yarn webpack --env.BASEURL=/api/v1 --config ./frontend/webpack.config.js",
-    "build:backend": "yarn tsc --project tsconfig.backend.json",
+    "build:backend": "yarn next build ./frontend/src && yarn tsc --project tsconfig.backend.json",
     "start:backend": "yarn tsc --project tsconfig.backend.json && node dist/backend/main.js"
   }
 }

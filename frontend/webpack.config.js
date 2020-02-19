@@ -18,11 +18,11 @@ module.exports = (env = {}) => {
         },
         resolve: {
             extensions: ['.tsx', '.ts', '.js'],
-            plugins: [
-                new TsConfigPathsPlugin({
-                    configFile: path.resolve(__dirname, './tsconfig.frontend.json')
-                })
-            ]
+            // plugins: [
+            //     new TsConfigPathsPlugin({
+            //         configFile: path.resolve(__dirname, './tsconfig.frontend.json')
+            //     })
+            // ]
         },
         plugins: [
             new CleanPlugin.CleanWebpackPlugin(),

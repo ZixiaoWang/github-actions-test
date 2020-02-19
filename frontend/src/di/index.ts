@@ -9,16 +9,16 @@ import {
 } from './decorators';
 import { INJECTABLE_SET, INJECTORS, GLOBAL_INJECTOR_SCOPE } from './core';
 
-export namespace DI {
-    export const bootstrap = BOOTSTRAP;
-    export const Injectable = INJECTABLE;
-    export const Component = COMPONENT;
-    export const Page = PAGE;
-    export const Injector = INJECTOR;
-    export const provide = PROVIDE;
-    export const inject = INJECT;
+export const DI = {
+    bootstrap: BOOTSTRAP,
+    Injectable: INJECTABLE,
+    Component: COMPONENT,
+    Page: PAGE,
+    Injector: INJECTOR,
+    provide: PROVIDE,
+    inject: INJECT,
 
-    export const __core = {
+    __core: {
         INJECTABLE_SET, 
         INJECTORS, 
         GLOBAL_INJECTOR_SCOPE 

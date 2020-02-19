@@ -24,7 +24,7 @@ DI.bootstrap([
 ]);
 
 // Next Configurates
-const dev: boolean = true;
+const dev: boolean = false;
 const dir: string = path.resolve(__dirname, '../../frontend/src');
 
 const app = next({ dev, dir });
