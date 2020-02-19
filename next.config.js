@@ -1,7 +1,7 @@
 module.exports = {
     env: {
         SSR: true,
-        BASEURL: null
+        BASEURL: "/api/v1"
     },
     distDir: '../next',
     pageExtensions: [
