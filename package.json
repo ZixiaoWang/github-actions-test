@@ -70,6 +70,7 @@
     "build:express": "yarn tsc --project tsconfig.backend.json",
     "start:express": "yarn tsc --project tsconfig.backend.json && node dist/backend/main.js",
     "build:backend": "yarn next build ./frontend/src && yarn tsc --project tsconfig.backend.json",
-    "start:backend": "yarn next build ./frontend/src && yarn tsc --project tsconfig.backend.json && node dist/backend/main.js"
+    "start:backend": "yarn next build ./frontend/src && yarn tsc --project tsconfig.backend.json && node dist/backend/main.js",
+    "start": "yarn build:frontend && yarn start:backend"
   }
 }
