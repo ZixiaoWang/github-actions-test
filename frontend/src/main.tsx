@@ -8,6 +8,7 @@ import PostList from './pages/PostList';
 import PostContent from './pages/PostContent';
 import UserDetail from './pages/UserDetail';
 import CommentDetail from './pages/CommentDetail';
+import Home from './pages/Home';
 
 import { 
     PostService, 
@@ -20,11 +21,12 @@ const App = () => {
     return (
         <HashRouter>
             <Switch>
+                <Route path="/home" exact component={ Home } />
                 <Route path="/posts" exact component={ PostList } />
                 <Route path="/posts/:postId" exact component={ PostContent } />
                 <Route path="/user/:userId" exact component={ UserDetail } />
                 <Route path="/comments/:commentId" exact component={ CommentDetail } />
-                <Redirect to="/posts" />
+                <Redirect to="/home" />
             </Switch>
         </HashRouter>
     )

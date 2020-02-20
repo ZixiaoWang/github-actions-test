@@ -34,8 +34,8 @@ const getUsers = async (userNum: number = 50): Promise<IUser[]> => {
         .fill(0)
         .map((item: number, index: number) => {
             return {
-                id: index,
-                ...generateUser()
+                ...generateUser(),
+                id: index
             }
         })
 }
@@ -43,8 +43,8 @@ const getUsers = async (userNum: number = 50): Promise<IUser[]> => {
 const getUserByUserId = async (userId: string | number = 0): Promise<IUser> => {
     const id: number = Number(userId);
     return {
-        id,
-        ...generateUser()
+        ...generateUser(),
+        id
     }
 }
 

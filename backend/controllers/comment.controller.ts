@@ -28,8 +28,8 @@ const getCommentByCommentId = async (commentId: number | string): Promise<IComme
     const id: number = Number(commentId);
 
     return {
-        id,
-        ...generateComment()
+        ...generateComment(),
+        id
     }
 }
 
@@ -41,8 +41,8 @@ const getCommentsByUserId = async (userId: number | string): Promise<IComment[]>
         .fill(0)
         .map(() => {
             return {
-                userId: ID,
-                ...generateComment()
+                ...generateComment(),
+                userId: ID
             }
         });
 }
@@ -55,8 +55,8 @@ const getCommentsByPostId = async (postId: number | string): Promise<IComment[]>
         .fill(0)
         .map(() => {
             return {
-                postId: ID,
-                ...generateComment()
+                ...generateComment(),
+                postId: ID
             }
         });
 }
