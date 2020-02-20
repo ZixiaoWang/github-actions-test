@@ -1,7 +1,7 @@
 ## POC project
 An experimental project with some **interesting** stuff
 
-### Interesting stuff includes
+### Interesting stuff include
 - Dependency Injection implementation in ReactJS
 - Put Frontend & Backend in the same repo
 - Server side rendering (SSR)
