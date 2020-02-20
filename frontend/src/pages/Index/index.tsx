@@ -1,9 +1,9 @@
 import 'reflect-metadata';
 import React from 'react';
-import PostList from '../PostList';
+import Home from '../Home';
 
 const Index = () => {
-    return <PostList></PostList>
+    return <Home></Home>
 }
 
 export default Index;

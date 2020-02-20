@@ -16,8 +16,8 @@ const getPosts = async (postNumber: number = 50): Promise<IPost[]> => {
         .fill(0)
         .map((item: number, index: number) => {
             return {
-                id: index,
-                ...generatePost()
+                ...generatePost(),
+                id: index
             }
         });
 }
@@ -26,8 +26,8 @@ const getPostByPostId = async (postId: number | string): Promise<IPost> => {
     const id: number = Number(postId);
 
     return {
-        id,
-        ...generatePost()
+        ...generatePost(),
+        id
     }
 }
 
@@ -39,8 +39,8 @@ const getPostsByUserId = async (userId: number | string): Promise<IPost[]> => {
         .fill(0)
         .map(() => {
             return {
-                userId,
-                ...generatePost()
+                ...generatePost(),
+                userId: Number(userId)
             }
         })
 }
