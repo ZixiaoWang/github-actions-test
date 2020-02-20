@@ -13,7 +13,7 @@ An experimental project with some **interesting** stuff
 
 ### Quick start
 ```
-    git clone git@github.com:EOSIO/webdev-poc-ttd.git
+    git clone <this-repo>
     yarn install
     yarn start
 ```
