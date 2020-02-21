@@ -9,8 +9,8 @@ export const verificationMiddleware = (req: express.Request, res: express.Respon
 
     if (request.method.toLowerCase() === 'post' && request.path === '/login') {
         res.cookie('USER', 'user', { signed: true });
-        res.redirect('/Index');
-        next();
+        res.status(200);
+        res.send(true);
     } else {
         if (request.signedCookies['USER'] === 'user') {
             next();

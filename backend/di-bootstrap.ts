@@ -14,3 +14,6 @@ export const DIBootstrap = () => {
         CommentService
     ]);
 }
+
+export * from '../frontend/src/di';
+export * from '../frontend/src/services';

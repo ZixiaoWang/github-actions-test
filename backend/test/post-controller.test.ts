@@ -1,6 +1,6 @@
 import faker from 'faker';
-import { PostController } from "../backend/controllers";
-import { IPost } from "../backend/interface";
+import { PostController } from "../controllers";
+import { IPost } from "../interface";
 
 describe('Post Controller Test', () => {
 

@@ -9,7 +9,7 @@ import cookieSession from 'cookie-session';
 
 import { AuthRouter } from './routers';
 import { LoggerMiddleware, SSRMiddleware, verificationMiddleware } from './middlewares';
-import { DIBootstrap } from './bootstrap';
+import { DIBootstrap } from './di-bootstrap';
 import { sessionOptions, nextOptions, interestingBanner } from './config';
 
 const app = next(nextOptions);

@@ -1,6 +1,6 @@
 import faker from 'faker';
-import { CommentController } from "../backend/controllers";
-import { IComment } from "../backend/interface";
+import { CommentController } from "../controllers";
+import { IComment } from "../interface";
 
 describe('Comment Controller Test', () => {
 

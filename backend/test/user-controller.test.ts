@@ -1,6 +1,6 @@
 import faker from 'faker';
-import { UserController } from "../backend/controllers";
-import { IUser } from "../backend/interface";
+import { UserController } from "../controllers";
+import { IUser } from "../interface";
 
 describe('User Controller Test', () => {
 
