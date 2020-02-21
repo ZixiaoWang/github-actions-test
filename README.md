@@ -11,6 +11,7 @@ An experimental project with some **interesting** stuff
 - Simple Github Actions implementation
 - Simple Unit test design (Jest based)
 - Simple Integration test design (Jest based)
+- Implemented Service Workers (Test site now is intallable🌼🌼)
 
 ### Quick start
 ```
@@ -41,5 +42,5 @@ http://localhost:8080/csr/#
 ```
 
 ### TODO
-- Service workers inplementation
+- ~~Service workers inplementation~~
 - ~~Integration test cases design~~
