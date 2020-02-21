@@ -10,6 +10,7 @@ An experimental project with some **interesting** stuff
 - Swagger Doc generation
 - Simple Github Actions implementation
 - Simple Unit test design (Jest based)
+- Simple Integration test design (Jest based)
 
 ### Quick start
 ```
@@ -41,4 +42,4 @@ http://localhost:8080/csr/#
 
 ### TODO
 - Service workers inplementation
-- Integration test cases design
+- ~~Integration test cases design~~
