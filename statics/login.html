@@ -1,0 +1,63 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.0/css/bulma.min.css">
+
+    <title>Github Actions Tests | Login</title>
+</head>
+<body>
+    <div class="hero is-fullheight has-background-white-ter">
+        <div class="hero-body">
+            <div class="container">
+                <div class="columns">
+                    <div class="column is-full-mobile is-half-tablet is-offset-one-quarter-tablet is-one-fourth-desktop is-offset-three-quarters-desktop">
+                        <div class="card has-background-white">
+                            <div class="card-content">
+                                <h4 class="title is-4">
+                                    <span>FAKE LOGIN</span> 
+                                    <br>
+                                    <small class="subtitle is-6">You can enter whatever you want</small>
+                                </h4>
+                            </div>
+                            <div class="card-content">
+                                <div class="field">
+                                    <label class="label">Username</label>
+                                    <input type="text" id="username" class="input" placeholder="Lady Gaga" />
+                                </div>
+                                <div class="field">
+                                    <label class="label">Password</label>
+                                    <input type="password" id="password" class="input" placeholder="I want your love and your lovers revenage" />
+                                </div>
+                                <hr>
+                                <div class="field">
+                                    <button class="button is-info is-fullwidth" onclick="login()">Login</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        async function login() {
+            const res = await fetch(
+                '/login', 
+                { 
+                    method: 'POST', 
+                    body: JSON.stringify({
+                        username: document.getElementById('username'),
+                        password: document.getElementById('password')
+                    })
+                }
+            );
+
+            if (res.status === 200) {
+                location.href = '/Index';
+            }
+        }
+    </script>
+</body>
+</html>
