@@ -1,8 +1,19 @@
 import React from 'react';
+import http from 'http';
 
 type Props = any;
 type ReactFunctionalComponent = (props: Props) => JSX.Element
 type HigherOrderReactFunctionalComponent = (Component: ReactFunctionalComponent) => ReactFunctionalComponent
+
+interface GetInitialPropsOption {
+    req?: http.ClientRequest,
+    res?: http.ServerResponse,
+    pathname?: string,
+    query?: any,
+    asPath?: string,
+    jsonPageRes?: Response,
+    err?: Error
+}
 
 export const inject = (services: Props = {}): { into: HigherOrderReactFunctionalComponent } => {
     return {
@@ -12,7 +23,10 @@ export const inject = (services: Props = {}): { into: HigherOrderReactFunctional
             };
             
             // SSR makes me question the meaning of my life...
-            WrappedComponent.getInitialProps = async () => {
+            WrappedComponent.getInitialProps = async ({ req, res, pathname, query, asPath, jsonPageRes, err }: GetInitialPropsOption) => {
+                if (err) {
+                    throw err;
+                }
                 return services;
             }
 

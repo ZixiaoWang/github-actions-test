@@ -16,7 +16,7 @@ export const sessionOptions: any = {
 };
 
 export const nextOptions: any = {
-    dev: true,
+    dev: false,
     dir: path.resolve(__dirname, '../../frontend/src')
 }
 

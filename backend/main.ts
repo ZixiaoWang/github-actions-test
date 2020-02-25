@@ -30,6 +30,11 @@ const port: number = Number(process.env.PORT || 8080);
     server.use('/csr', express.static(path.resolve(__dirname, '../../frontend/dist')));
     server.use('/api/v1', AuthRouter);
     server.use('/', SSRMiddleware(nextRequestHandler));
+    server.use((err: any, req: any, res: any, next: any) => {
+        console.log('>>>>>>>>>>>>>>>>>>>>>>')
+        console.log(err);
+        console.log('>>>>>>>>>>>>>>>>>>>>>>')
+    })
 
     server.listen(port, () => {
         console.log('\n');
