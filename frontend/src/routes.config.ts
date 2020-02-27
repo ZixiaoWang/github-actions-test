@@ -1,15 +1,11 @@
 import 'reflect-metadata';
-// import PostList from './pages/PostList';
-// import PostContent from './pages/PostContent';
-// import UserDetail from './pages/UserDetail';
-// import CommentDetail from './pages/CommentDetail';
-// import Home from './pages/Home';
+import { lazy } from 'react';
 
-const PostList = null;
-const PostContent = null;
-const UserDetail = null;
-const CommentDetail = null;
-const Home = null;
+const PostList = lazy(() => import('./pages/PostList'));
+const PostContent = lazy(() => import('./pages/PostContent'));
+const UserDetail = lazy(() => import('./pages/UserDetail'));
+const CommentDetail = lazy(() => import('./pages/CommentDetail'));
+const Home = lazy(() => import('./pages/Home'));
 
 export interface IRouteItem {
     path: string,

@@ -1,3 +1,4 @@
+import React from 'react';
 import * as ReactRouterDOM from 'react-router-dom';
 import NextLink from 'next/link';
 import { DI } from '../di';
