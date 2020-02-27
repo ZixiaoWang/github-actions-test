@@ -35,5 +35,7 @@ export function PostList ({ postService }: PostListProps) {
 }
 
 export default DI
-    .inject({ postService: DI.provide(PostService) })
+    .inject({ 
+        postService: DI.provide(PostService) 
+    })
     .into(PostList);

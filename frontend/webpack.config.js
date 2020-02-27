@@ -10,6 +10,7 @@ module.exports = (env = {}) => {
         entry: path.resolve(__dirname, './src/main.tsx'),
         output: {
             filename: '[hash].js',
+            chunkFilename: '[hash].chunk.js',
             path: path.resolve(__dirname, './dist')
         },
         module: {
@@ -26,6 +27,12 @@ module.exports = (env = {}) => {
         resolve: {
             extensions: ['.tsx', '.ts', '.js']
         },
+        // optimization: {
+        //     splitChunks: {
+        //         chunks: 'all',
+        //         minChunks: 2
+        //     }
+        // },
         plugins: [
             new CleanPlugin.CleanWebpackPlugin(),
             new HTMLPlugin({

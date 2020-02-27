@@ -15,6 +15,6 @@ export function bootstrap(InjectableClasses: any[]) {
             }
         });
     } else {
-        throw new Error('Invalid argument, it should be a array of Class decorated by @Injectable()')
+        throw new Error('Invalid argument, it should be a array of Class decorated by @DI.Injectable()')
     }
 }

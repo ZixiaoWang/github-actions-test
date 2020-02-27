@@ -37,6 +37,7 @@ const port: number = Number(process.env.PORT || 8080);
     })
 
     server.listen(port, () => {
+        console.clear();
         console.log('\n');
         console.log(colors.green(interestingBanner));
         console.log(colors.magenta('======================================='));

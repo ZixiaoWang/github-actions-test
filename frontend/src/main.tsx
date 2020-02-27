@@ -1,43 +1,71 @@
 import 'reflect-metadata';
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { Switch, Route, Redirect, HashRouter } from 'react-router-dom';
 import { render } from 'react-dom';
+
 import { DI } from './di';
+import { routes, IRouteItem } from './routes.config';
+import { PostService, UserService, CommentService, FetchService, RouteService } from './services';
 
-import PostList from './pages/PostList';
-import PostContent from './pages/PostContent';
-import UserDetail from './pages/UserDetail';
-import CommentDetail from './pages/CommentDetail';
-import Home from './pages/Home';
+// import PostList from './pages/PostList';
+// import PostContent from './pages/PostContent';
+// import UserDetail from './pages/UserDetail';
+// import CommentDetail from './pages/CommentDetail';
+// import Home from './pages/Home';
 
-import {
-    PostService,
-    UserService,
-    CommentService,
-    FetchService
-} from './services';
-
-const App = () => {
-    return (
-        <HashRouter>
-            <Switch>
-                <Route path="/home" exact component={Home} />
-                <Route path="/posts" exact component={PostList} />
-                <Route path="/posts/:postId" exact component={PostContent} />
-                <Route path="/user/:userId" exact component={UserDetail} />
-                <Route path="/comments/:commentId" exact component={CommentDetail} />
-                <Redirect to="/home" />
-            </Switch>
-        </HashRouter>
-    )
-}
+// const PostList = lazy(() => import('./pages/PostList'));
+// const PostContent = lazy(() => import('./pages/PostContent'));
+// const UserDetail = lazy(() => import('./pages/UserDetail'));
+// const CommentDetail = lazy(() => import('./pages/CommentDetail'));
+// const Home = lazy(() => import('./pages/Home'));
 
 DI.bootstrap([
     FetchService,
     PostService,
     UserService,
-    CommentService
+    CommentService,
+    RouteService
 ]);
+
+const App = () => {
+    const defaultRoutes: JSX.Element[] = [];
+    const redirectRoutes: JSX.Element[] = [];
+    const normalRoutes: JSX.Element[] = [];
+
+    routes
+        .forEach((route: IRouteItem, index: number) => {
+            if (route.default) {
+                defaultRoutes.push(<Redirect to={ route.path } />);
+            }
+            if (route.redirect) {
+                redirectRoutes.push(
+                    <Redirect path={ route.path } 
+                        exact={ route.exact } 
+                        to={ route.redirect }>
+                    </Redirect>
+                );
+            } else {
+                normalRoutes.push(
+                    <Route path={ route.path }
+                        exact={ route.exact }
+                        component={ route.component }>
+                    </Route>
+                )
+            }
+        })
+
+    return (
+        <HashRouter>
+            <Suspense fallback={<div>Loading...</div>}>
+                <Switch>
+                    { 
+                        normalRoutes.concat(redirectRoutes, defaultRoutes) 
+                    }
+                </Switch>
+            </Suspense>
+        </HashRouter>
+    )
+}
 
 // Service Workers
 if ('serviceWorker' in navigator) {

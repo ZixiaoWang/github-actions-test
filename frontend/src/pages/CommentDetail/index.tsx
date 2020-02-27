@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { DI } from '../../di';
 import { CommentService, CommentPlaceholder, IComment } from '../../services';
 import { useParams } from '../../router-provider';
+import { DI } from '../../di';
 
 export interface CommentDetailProps {
     commentService: CommentService,
@@ -17,7 +17,7 @@ export const CommentDetail = ({ commentService }: CommentDetailProps) => {
             const newComment: IComment = await commentService.getCommentByCommentId(commentId as string);
             setComment(newComment);
         })()
-    }, [])
+    }, []);
 
     return (
         <section className="section">
@@ -45,5 +45,7 @@ export const CommentDetail = ({ commentService }: CommentDetailProps) => {
 }
 
 export default DI
-    .inject({ commentService: DI.provide(CommentService) })
+    .inject({ 
+        commentService: DI.provide(CommentService) 
+    })
     .into(CommentDetail);

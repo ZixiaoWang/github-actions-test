@@ -60,7 +60,7 @@ Better Explanations as following:
 I'm too busy to read those super long & boring articles
 ```typescript
 // example.ts
-@Injectable()
+@DI.Injectable()
 class Dependency {}
 
 @Decorator()
