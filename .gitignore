@@ -1,17 +1,20 @@
-// Node Modules
+# Node Modules
 node_modules
 
-// dist
+# dist
 **/dist
 **/__dist
 
-// cache
+# cache
 **/__snapshots__
 **/.next
 **/next
 
-// error log
+# error log
 yarn-error.log
 
-// OS file
+# OS file
 .DS_Store
+
+# Webpack Bundle Analyzer Report
+frontend/report

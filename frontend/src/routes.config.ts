@@ -1,12 +1,6 @@
 import 'reflect-metadata';
 import { lazy } from 'react';
 
-const PostList = lazy(() => import('./pages/PostList'));
-const PostContent = lazy(() => import('./pages/PostContent'));
-const UserDetail = lazy(() => import('./pages/UserDetail'));
-const CommentDetail = lazy(() => import('./pages/CommentDetail'));
-const Home = lazy(() => import('./pages/Home'));
-
 export interface IRouteItem {
     path: string,
     exact?: boolean,
@@ -23,35 +17,35 @@ export const routes: IRouteItem[] = [
         path: "/home",
         exact: true,
         pagePath: "/Index",
-        component: Home,
+        component: lazy(() => import('./pages/Home')),
         default: true
     },
     {
         path: "/posts",
         exact: true,
         pagePath: "/PostList",
-        component: PostList,
+        component: lazy(() => import('./pages/PostList')),
         default: false
     },
     {
         path: "/posts/:postId",
         exact: true,
         pagePath: "/PostContent",
-        component: PostContent,
+        component: lazy(() => import('./pages/PostContent')),
         default: false
     },
     {
         path: "/users/:userId",
         exact: true,
         pagePath: "/UserDetail",
-        component: UserDetail,
+        component: lazy(() => import('./pages/UserDetail')),
         default: false
     },
     {
         path: "/comments/:commentId",
         exact: true,
         pagePath: "/CommentDetail",
-        component: CommentDetail,
+        component: lazy(() => import('./pages/CommentDetail')),
         default: false
     }
 ]

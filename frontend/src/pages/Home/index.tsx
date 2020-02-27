@@ -16,6 +16,15 @@ export const Home = () => {
                                 <h4 className="subtitle is-4">
                                     POST is a simple website for some interesting stuff
                                 </h4>
+                                {
+                                    (process.env.SSR || process.env.SSR === 'true') ?
+                                    <h5 className="subtitle is-5">
+                                        This is Server side rendered
+                                    </h5> :
+                                    <h5 className="subtitle is-5">
+                                        This is Client side rendered
+                                    </h5>
+                                }
                             </div>
                         </div>
                     </div>

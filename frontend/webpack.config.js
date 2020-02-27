@@ -4,14 +4,18 @@ const HTMLPlugin = require('html-webpack-plugin');
 const CleanPlugin = require('clean-webpack-plugin');
 const WorkboxPlugin = require('workbox-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
+const BundleAnalyzer = require('webpack-bundle-analyzer');
 
 module.exports = (env = {}) => {
     return {
-        entry: path.resolve(__dirname, './src/main.tsx'),
+        entry: {
+            main: path.resolve(__dirname, './src/main.tsx')
+        },
         output: {
             filename: '[hash].js',
-            chunkFilename: '[hash].chunk.js',
-            path: path.resolve(__dirname, './dist')
+            chunkFilename: 'vendor.js',
+            path: path.resolve(__dirname, './dist'),
+            hashDigestLength: 8
         },
         module: {
             rules: [
@@ -24,15 +28,14 @@ module.exports = (env = {}) => {
                 }
             ]
         },
+        optimization: {
+            splitChunks: {
+                chunks: 'all'
+            }
+        },
         resolve: {
             extensions: ['.tsx', '.ts', '.js']
         },
-        // optimization: {
-        //     splitChunks: {
-        //         chunks: 'all',
-        //         minChunks: 2
-        //     }
-        // },
         plugins: [
             new CleanPlugin.CleanWebpackPlugin(),
             new HTMLPlugin({
@@ -40,7 +43,8 @@ module.exports = (env = {}) => {
                 minify: true
             }),
             new webpack.DefinePlugin({
-                "process.env.BASEURL": JSON.stringify(env.BASEURL)
+                "process.env.BASEURL": JSON.stringify(env.BASEURL),
+                "process.env.SSR": false
             }),
             new WorkboxPlugin.GenerateSW({
                 cleanupOutdatedCaches: true,
@@ -57,6 +61,8 @@ module.exports = (env = {}) => {
                     /\.woff2$/,
                     /\.otf$/,
                     /\.ttf$/,
+
+                    /vendor.js$/
                 ],
                 mode: 'production',
                 inlineWorkboxRuntime: true,
@@ -74,13 +80,24 @@ module.exports = (env = {}) => {
                         cacheName: 'styles',
                         expiration: { maxEntries: 10 }
                     }
+                }, {
+                    urlPattern: /vendor.js$/,
+                    handler: 'CacheFirst',
+                    options: {
+                        cacheName: 'vendor',
+                        expiration: { maxEntries: 1 }
+                    }
                 }]
             }),
             new CopyPlugin([
                 { from: path.resolve(__dirname, './src/manifest.json') },
                 { from: path.resolve(__dirname, './src/manifest.json'), to: path.resolve(__dirname, './dist/manifest.webmanifest') },
                 { from: path.resolve(__dirname, './src/images'), to: path.resolve(__dirname, './dist/images') }
-            ])
+            ]),
+            new BundleAnalyzer.BundleAnalyzerPlugin({
+                analyzerMode: 'static',
+                reportFilename: '../report/report.html'
+            })
         ]
     }
 }
