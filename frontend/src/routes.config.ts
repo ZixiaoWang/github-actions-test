@@ -47,5 +47,10 @@ export const routes: IRouteItem[] = [
         pagePath: "/CommentDetail",
         component: lazy(() => import('./pages/CommentDetail')),
         default: false
+    },
+    {
+        path: '/',
+        exact: true,
+        redirect: '/home'
     }
 ]

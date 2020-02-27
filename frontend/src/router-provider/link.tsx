@@ -22,7 +22,11 @@ if (process.env.SSR || process.env.SSR === 'true') {
             href = [route.path, route.queryString].join('?');
         }
 
-        return <NextLink href={ href } as={ as }>{ props.children }</NextLink>
+        return (
+            <NextLink href={ href } as={ as }>
+                <a>{ props.children }</a>
+            </NextLink>
+        )
     };
 } else {
     LinkWrapper.LinkComponent = ReactRouterDOM.Link;
